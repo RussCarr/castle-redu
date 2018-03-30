@@ -9,7 +9,7 @@ namespace CastleGrimtol.Project
 
     public void Take()
     {
-        System.Console.WriteLine("You have Taken the" + Name);
+        System.Console.WriteLine("You have taken the" + Name);
     }
 
        public Item(string name)
