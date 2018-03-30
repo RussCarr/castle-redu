@@ -8,13 +8,8 @@ namespace CastleGrimtol.Project
     public Room CurrentRoom { get; set; }
     public Player CurrentPlayer { get; set; }
 
-    internal static void setup()
-    {
-       Player CurrentPlayer = new Player();
-      Room CurrentRoom = new Room();
-    }
 
-    internal Bag screwdriver { get; private set; }
+    // internal Bag screwdriver { get; private set; }
 
     public void Reset()
     {
@@ -23,9 +18,21 @@ namespace CastleGrimtol.Project
 
     public void Setup()
     {
-     
       Start();
-      
+      // Player player = new Player();
+      CurrentPlayer = new Player();
+      CurrentRoom = new Room();
+      CurrentPlayer.Score = 513;
+
+      Item screwdriver = new Item("Screwdriver");
+      Console.WriteLine(CurrentPlayer.Score);
+      CurrentPlayer.Inventory.Add(screwdriver);
+      Console.WriteLine(CurrentPlayer.Inventory[0].Name);
+      // Start();
+      System.Console.WriteLine();
+      screwdriver.Take();
+      Console.ReadLine();
+      Console.ReadLine();
     }
 
     public void UseItem(string itemName)
@@ -44,9 +51,10 @@ namespace CastleGrimtol.Project
     {
       Console.Clear();
       Console.WriteLine("Welcome to my House. Its a mess because I was remodeling this place but I decided to go to code school before finishing. Becareful there are lots of hazards laying around. The doors around here are falling apart so if you get stuck in a room, just find a tool and use it.");
-      Console.WriteLine("Where are the options you have to move about...");
+      Console.WriteLine();
       Console.WriteLine("If you need help with how to move around you can ask for (H)elp.");
-      Console.WriteLine("Where are the options you have to move about...");
+      Console.WriteLine("Here are the options you have to move about...");
+      Console.WriteLine();
       Console.WriteLine("[(N)orth-(E)ast-(S)outh,[W]est]");
 
       string input = Console.ReadLine().ToLower();
@@ -56,17 +64,17 @@ namespace CastleGrimtol.Project
           Console.WriteLine("The door is locked.");
           Start();
           break;
-        case "e":
-          Console.WriteLine("You are looking at a window, nowhere to exit to.");
-          Start();
-          break;
-        case "s":
-          Console.WriteLine("You can't leave the door is stuck and the lock just fell off.");
-          Start();
-          break;
+        // case "e":
+        //   Console.WriteLine("You are looking at a window, nowhere to exit to.");
+        //   Start();
+        //   break;
+        // case "s":
+        //   Console.WriteLine("You can't leave the door is stuck and the lock just fell off.");
+        //   Start();
+        //   break;
         case "w":
           Console.WriteLine("Looks like the door is locked.");
-          Start();
+          Bedroom();
           break;
         case "h":
           Console.WriteLine("You have a few options.");
@@ -74,13 +82,19 @@ namespace CastleGrimtol.Project
           Console.WriteLine("[(Quit)-(L)ook-(R)eset-(T)ake-(U)se]");
           Start();
           break;
-        case "take screwdriver":
+          // case "take screwdriver":
           // Item screwdriver = new Item();
-          //  Bag[] Inventory = new Bag[0];
+          // Item hammer = new Item();
+          //  Item[] Inventory = new Item[2];
           // Inventory [0]  = screwdriver;
           // Inventory [1]  = hammer;
-          //  List<Item> screwdriver = new List<Item>();
+          //  List<Item> Inventory = new List<Item>();
+          // Item screwdriver = new Item();
+          Console.WriteLine(CurrentPlayer);
           // CurrentPlayer.Inventory.Add(screwdriver);
+          Console.WriteLine(CurrentPlayer.Inventory[0].Name);
+          // CurrentPlayer
+          // CurrentPlayer.Inventory
           return;
         // CurrentRoom.Items.
         case "use screwdriver":
@@ -114,26 +128,26 @@ namespace CastleGrimtol.Project
     }
     public void Living()
     {
-      Console.WriteLine("Welcome to my House. Its a mess because I have been remodeling this place but I decided to go to code school before finishing. Becareful there are lots of hazards laying around.");
-      Console.WriteLine("Where are the options you have to move about...");
-      Console.WriteLine("If you need help with how to move around you can ask for (H)elp.");
-      Console.WriteLine("Where are the options you have to move about...");
+      Console.WriteLine("Room 2");
+      // Console.WriteLine("Where are the options you have to move about...");
+      // Console.WriteLine("If you need help with how to move around you can ask for (H)elp.");
+      // Console.WriteLine("Where are the options you have to move about...");
       Console.WriteLine("[(N)orth-(E)ast-(S)outh,[W]est]");
-      string input = Console.ReadLine().ToLower();
-      switch (input)
+      string input2 = Console.ReadLine().ToLower();
+      switch (input2)
       {
         case "n":
-
+          Kitchen();
           break;
-        case "e":
+        // case "e":
 
-          break;
-        case "s":
+        //   break;
+        // case "s":
 
-          break;
-        case "w":
+        //   break;
+        // case "w":
 
-          break;
+        // break;
         case "h":
           Help();
           break;
@@ -153,26 +167,26 @@ namespace CastleGrimtol.Project
     }
     public void Kitchen()
     {
-      Console.WriteLine("Welcome to my House. Its a mess because I have been remodeling this place but I decided to go to code school before finishing. Becareful there are lots of hazards laying around.");
-      Console.WriteLine("Where are the options you have to move about...");
-      Console.WriteLine("If you need help with how to move around you can ask for (H)elp.");
-      Console.WriteLine("Where are the options you have to move about...");
+      Console.WriteLine("Room 3");
+      // Console.WriteLine("Where are the options you have to move about...");
+      // Console.WriteLine("If you need help with how to move around you can ask for (H)elp.");
+      // Console.WriteLine("Where are the options you have to move about...");
       Console.WriteLine("[(N)orth-(E)ast-(S)outh,[W]est]");
-      string input = Console.ReadLine().ToLower();
-      switch (input)
+      string input3 = Console.ReadLine().ToLower();
+      switch (input3)
       {
         case "n":
-
+          Living();
           break;
-        case "e":
+        // case "e":
 
-          break;
-        case "s":
+        //   break;
+        // case "s":
 
-          break;
-        case "w":
+        //   break;
+        // case "w":
 
-          break;
+        // break;
         case "h":
           Help();
           break;
@@ -192,26 +206,26 @@ namespace CastleGrimtol.Project
     }
     public void Bedroom()
     {
-      Console.WriteLine("Welcome to my House. Its a mess because I have been remodeling this place but I decided to go to code school before finishing. Becareful there are lots of hazards laying around.");
-      Console.WriteLine("Where are the options you have to move about...");
-      Console.WriteLine("If you need help with how to move around you can ask for (H)elp.");
-      Console.WriteLine("Where are the options you have to move about...");
+      Console.WriteLine("Room 4");
+      // Console.WriteLine("Where are the options you have to move about...");
+      // Console.WriteLine("If you need help with how to move around you can ask for (H)elp.");
+      // Console.WriteLine("Where are the options you have to move about...");
       Console.WriteLine("[(N)orth-(E)ast-(S)outh,[W]est]");
-      string input = Console.ReadLine().ToLower();
-      switch (input)
+      string input4 = Console.ReadLine().ToLower();
+      switch (input4)
       {
         case "n":
-
+          System.Console.WriteLine("You win!");
           break;
-        case "e":
+        // case "e":
 
-          break;
-        case "s":
+        //   break;
+        // case "s":
 
-          break;
-        case "w":
+        //   break;
+        // case "w":
 
-          break;
+        //   break;
         case "h":
           Help();
           break;
@@ -231,7 +245,5 @@ namespace CastleGrimtol.Project
     }
   }
 
-  internal class Bag
-  {
-  }
+
 }
